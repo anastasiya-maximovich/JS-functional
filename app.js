@@ -1,4 +1,7 @@
-const sliders = document.querySelectorAll(".slide");
+function slideView(slideActive = 0){
+    const sliders = document.querySelectorAll(".slide");
+
+sliders[slideActive].classList.add("active");
 
 for (const slide of sliders) {
     slide.addEventListener("click", () => {
@@ -12,3 +15,6 @@ function clearActiveClasses() {
         slide.classList.remove("active")
     })
 }
+}
+
+slideView();
