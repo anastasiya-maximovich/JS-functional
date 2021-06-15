@@ -1,49 +1,75 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap'); 
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Muli', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background-color: #e5e5e5;
+  display: flex;
+  padding-top: 5rem;
+  justify-content: center;
   overflow: hidden;
   margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(50 48 48);
 }
-.container {
-  width: 100%;
+
+.row {
   display: flex;
-  padding: 0 20px;
+  width: 600px;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  text-align: center;
 }
-.slide {
-  height: 80vh;
+
+.col-header {
+  width: 150px;
+  box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
   border-radius: 20px;
-  margin: 10px;
-  cursor: pointer;
-  color: #f7f2f2;
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  transition: all .9s ease-in;
+  padding: 0.8rem 1rem;
+  color: #fff;
 }
-.slide h3 {
-  position: absolute;
-  font-size: 24px;
-  bottom: 20px;
-  left: 20px;
-  margin: 0;
-  opacity: 0;
+
+.item {
+  width: 150px;
+  height: 66px;
+  border: 1px solid #eee;
+  box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
+  border-radius: 20px;
+  background: #f7f6f7;
+  padding: 0.8rem 1rem;
+  color: #828282;
+  text-align: center;
+  cursor: grab;
 }
-.slide.active {
-  flex: 10;
+
+.item:active {
+  cursor: grabbing;
 }
-.slide.active h3 {
-  opacity: 1;
-  transition: opacity .3s ease-in .9s;
+
+.placeholder {
+  width: 150px;
+  height: 66px;
+}
+
+.start {
+  background: linear-gradient(90deg, #ff85e4 0%, #229efd 179.25%);
+}
+
+.progress {
+  background: linear-gradient(90deg, #209cff 0%, #68e0cf 100%);
+}
+
+.done {
+  background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.hold {
+  border: 2px solid #57b1bb;
+}
+.hide {
+  display: none;
+}
+.hovered {
+  border-top: 2px solid #75d6e0;
 }

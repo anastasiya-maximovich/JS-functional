@@ -1,20 +1,38 @@
-function slideView(slideActive = 0){
-    const sliders = document.querySelectorAll(".slide");
+const item = document.querySelector(".item"),
+      placeholders = document.querySelectorAll(".placeholder");
 
-sliders[slideActive].classList.add("active");
+item.addEventListener("dragstart", dragstart)
+item.addEventListener("dragend", dragend)
 
-for (const slide of sliders) {
-    slide.addEventListener("click", () => {
-        clearActiveClasses ()
-        slide.classList.add("active");
-    })
+for (let placeholder of placeholders) {
+    placeholder.addEventListener("dragover", dragover);
+    placeholder.addEventListener("dragenter", dragenter);
+    placeholder.addEventListener("dragleave", dragleave);
+    placeholder.addEventListener("drop", dragdrop);
 }
 
-function clearActiveClasses() {
-    sliders.forEach((slide) => {
-        slide.classList.remove("active")
-    })
-}
+function dragstart (event) {
+   event.target.classList.add("hold");
+   setTimeout(() =>    event.target.classList.add("hide")
+   , 0)
 }
 
-slideView();
+function dragend (event) {
+    event.target.classList.remove("hold", "hide");
+    //   event.target.className = "item"  <--- alternativa
+}
+
+function dragover (event) {
+    event.preventDefault();
+}
+function dragenter (event) {
+    event.target.classList.add("hovered");
+}
+function dragleave (event) {
+    event.target.classList.remove("hovered");
+}
+function dragdrop (event) {
+    event.target.classList.remove("hovered");
+    event.target.append(item);
+}
+
