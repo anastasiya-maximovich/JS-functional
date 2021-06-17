@@ -9,4 +9,10 @@
  Реализация функционала Захват элемента мышкой и его перенос (по принципу добавления товара в корзину, перетаскивания задач в  Trello)
  
  [JS-Fiddle](https://jsfiddle.net/anastasiya025/g021xLsk/)
+
+ # Vertical slider with news
+
+ Реализация функционала вертикального слайда путем изменением transform = translateY
+
+ [JS-Fiddle](https://jsfiddle.net/anastasiya025/vsfhwu50/1/)
  
