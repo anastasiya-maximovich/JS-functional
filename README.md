@@ -14,7 +14,7 @@
 
  Реализация функционала вертикального слайда путем изменением transform = translateY
 
- [JS-Fiddle](https://jsfiddle.net/anastasiya025/vsfhwu50/1/)
+ [JS-Fiddle](https://jsfiddle.net/anastasiya025/vsfhwu50/4/)
  
 # Hover Matrix Board
  
