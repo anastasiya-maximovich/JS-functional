@@ -11,11 +11,12 @@ body {
     overflow: hidden;
     margin: 0;
 }
-.container {
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 400px;
+    max-width: 400px;
+    flex-wrap: wrap;
 }
 .square {
     width: 16px;
@@ -23,5 +24,8 @@ body {
     margin: 2px;
     background: #1d1d1d;
     box-shadow: 0 0 2px #000;
-    transition: 2s ease;
+    transition: 2500ms ease;
+}
+.square:hover {
+    transition-duration: 0s;
 }
