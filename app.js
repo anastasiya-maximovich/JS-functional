@@ -7,6 +7,13 @@ const startBtn = document.querySelector("#start"),
 let time = 0;
 let score = 0;
 
+const COLORS = [
+    `linear-gradient(90deg, #16D9E3 0%, #30C7EC 47%, #46AEF7 100%)`,
+    `linear-gradient(90deg, #16e3b0 0%, #25ad8b 47%, #025e47 100%)`,
+    `linear-gradient(90deg, #d2dd70 0%, #98a056 47%, #4b501d 100%)`,
+    `linear-gradient(90deg, #f1c591 0%, #b38f63 47%, #57442d 100%)`,
+    `linear-gradient(90deg, #f19282 0%, #e46953 47%, #af4633 100%)`
+]
 startBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -68,9 +75,20 @@ function createRandomCircle() { // create game points
     circle.style.top = `${y}px`;
     circle.style.left = `${x}px`;
 
+    setColor(circle);
     board.append(circle);
 }
 
 function getRandomNumber(min, max) { // get Random
     return Math.round(Math.random()*(max-min)+min)
+}
+
+function setColor(element) {
+    const color = getRandomColor()
+    element.style.background = color;
+    element.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
+}
+function getRandomColor() {
+    const index = Math.floor(Math.random() * COLORS.length)
+    return COLORS[index]
 }
