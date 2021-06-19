@@ -5,6 +5,7 @@ const startBtn = document.querySelector("#start"),
       board = document.querySelector("#board");
 
 let time = 0;
+let score = 0;
 
 startBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -16,6 +17,14 @@ timeList.addEventListener("click", (event) => { // check the btn
     if(event.target.classList.contains("time-btn")){
         time = parseInt(event.target.getAttribute("data-time"))
         startGame();
+    }
+})
+
+board.addEventListener("click", (event) => {
+    if(event.target.classList.contains("circle")) {
+        score++;
+        event.target.remove();
+        createRandomCircle();
     }
 })
 
@@ -42,18 +51,22 @@ function setTime (value) { // for optimisation
 }
 
 function finishGame() {
-   // time = `00:00`;
+    timeEl.parentNode.classList.add("hide"); // clean h3
+    board.innerHTML = `<h1>Счёт: <span class="primary">${score}</span></h1>`
 }
 
 function createRandomCircle() { // create game points
     const circle = document.createElement("div");
     const size = getRandomNumber(10, 60);
-    const x = 150;
-    const y = 200;
-    
+    const {width, height} = board.getBoundingClientRect();
+    const x = getRandomNumber(0, width-size);
+    const y = getRandomNumber(0, height-size);
+
     circle.classList.add("circle");
     circle.style.width = `${size}px`;
     circle.style.height = `${size}px`;
+    circle.style.top = `${y}px`;
+    circle.style.left = `${x}px`;
 
     board.append(circle);
 }
